@@ -1,0 +1,303 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\CashierDesk.sol": {
+      "lastModificationDate": 1657724365106,
+      "contentHash": "abdcbf8f01484cea1b01645032b49af5",
+      "sourceName": "contracts/CashierDesk.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol",
+        "./IBEP20.sol",
+        "./library/SafeMath.sol",
+        "./library/Ownable.sol",
+        "./library/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "CashierDesk"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\node_modules\\hardhat\\console.sol": {
+      "lastModificationDate": 1657723542407,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\IBEP20.sol": {
+      "lastModificationDate": 1656506083789,
+      "contentHash": "9d548593d30018a4d04f7b7118fb160e",
+      "sourceName": "contracts/IBEP20.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "IBEP20"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\library\\SafeMath.sol": {
+      "lastModificationDate": 1656206980883,
+      "contentHash": "c6cd43c9e21ae516082975dc5dcf3b37",
+      "sourceName": "contracts/library/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\library\\Ownable.sol": {
+      "lastModificationDate": 1656688563845,
+      "contentHash": "009f76c9d8f9b3a7df8880eb35f39818",
+      "sourceName": "contracts/library/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\library\\Context.sol": {
+      "lastModificationDate": 1656688557571,
+      "contentHash": "764950e1c06a203bc9c0ffe3dfd4397e",
+      "sourceName": "contracts/library/Context.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\OpenLibrary.sol": {
+      "lastModificationDate": 1657725894475,
+      "contentHash": "a3b9c3ecae40122a651732e3a89ce123",
+      "sourceName": "contracts/OpenLibrary.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol",
+        "./IBEP20.sol",
+        "./library/SafeMath.sol",
+        "./library/Ownable.sol",
+        "./library/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "OpenLibrary"
+      ]
+    },
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\DRCToken.sol": {
+      "lastModificationDate": 1657440839483,
+      "contentHash": "1a4d51a9084ce53dfd722a40debebb34",
+      "sourceName": "contracts/DRCToken.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol",
+        "./library/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.12"
+      ],
+      "artifacts": [
+        "Context",
+        "DRCToken",
+        "IBEP20",
+        "Ownable"
+      ]
+    }
+  }
+}
