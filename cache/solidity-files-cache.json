@@ -218,8 +218,8 @@
       ]
     },
     "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\OpenLibrary.sol": {
-      "lastModificationDate": 1657725894475,
-      "contentHash": "a3b9c3ecae40122a651732e3a89ce123",
+      "lastModificationDate": 1657816189056,
+      "contentHash": "552e1473fb2f4474b0a335fb174e82d4",
       "sourceName": "contracts/OpenLibrary.sol",
       "solcConfig": {
         "version": "0.8.12",
