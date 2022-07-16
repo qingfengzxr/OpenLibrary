@@ -159,7 +159,7 @@ describe("BlackList contract", function () {
             await openLBSingerUser1.userBuySection(1000000, 1000001);
 
             // 用户查看书籍
-            let bookInfo = await openLBSingerUser1.getBookBySerialNumber(1000000, 1000001);
+            let bookInfo = await openLBSingerUser1.readSection(1000000, 1000001);
             console.log("bookInfo: ", bookInfo);
         });
     })

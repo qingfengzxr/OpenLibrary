@@ -97,8 +97,9 @@ contract OpenLibrary is Context, Ownable {
         emit AddSection(msg.sender, bookSerialNumber, newSection.SectionNumber);
     }
 
+    // 阅读
     // 根据书籍id，书籍对应的章节id返回书籍信息集对应章节信息
-    function getBookBySerialNumber(uint256 bookSerialNumber, uint256 sectionNumber) public view returns(Book memory, Section memory) {
+    function readSection(uint256 bookSerialNumber, uint256 sectionNumber) public view returns(Book memory, Section memory) {
         require(
             SectionAllowances[sectionNumber][msg.sender] == true,
             "sorry, you are not buy this section"
@@ -122,7 +123,7 @@ contract OpenLibrary is Context, Ownable {
     }
 
     // 查询用户是否有某个章节的权限
-    function allowance(uint256 sectionNumber) public view returns(bool) {
+    function sectionAllowance(uint256 sectionNumber) public view returns(bool) {
         return SectionAllowances[sectionNumber][msg.sender];
     }
 }
