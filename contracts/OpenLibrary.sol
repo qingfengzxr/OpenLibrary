@@ -3,7 +3,6 @@ pragma solidity ^0.8.12;
 pragma experimental ABIEncoderV2;
 
 import "hardhat/console.sol";
-import "./IBEP20.sol";
 import "./library/SafeMath.sol";
 import "./library/Ownable.sol";
 import "./library/Context.sol";

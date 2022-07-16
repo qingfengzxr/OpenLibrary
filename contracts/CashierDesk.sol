@@ -3,7 +3,7 @@ pragma solidity ^0.8.12;
 pragma experimental ABIEncoderV2;
 
 import "hardhat/console.sol";
-import "./IBEP20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./library/SafeMath.sol";
 import "./library/Ownable.sol";
 import "./library/Context.sol";
@@ -38,7 +38,7 @@ contract CashierDesk is Context, Ownable {
     // 收款操作相关
     // 向用户收取usdt
     function receiveUSDT(address sender, uint256 amount) public returns(bool) {
-        IBEP20 token = IBEP20(CashierTokenAddress);
+        IERC20 token = IERC20(CashierTokenAddress);
         require(
           token.transferFrom(sender, owner(), amount),
           "receive failed"
@@ -49,7 +49,7 @@ contract CashierDesk is Context, Ownable {
 
     // 向用户发送usdt
     function sendUSDT(address user, uint value) private returns (bool) {
-        IBEP20 token = IBEP20(CashierTokenAddress);
+        IERC20 token = IERC20(CashierTokenAddress);
         return token.transferFrom(owner(), user, value);
     }
 }
