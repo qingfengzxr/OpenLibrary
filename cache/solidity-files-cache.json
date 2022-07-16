@@ -218,8 +218,8 @@
       ]
     },
     "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\OpenLibrary.sol": {
-      "lastModificationDate": 1657816189056,
-      "contentHash": "552e1473fb2f4474b0a335fb174e82d4",
+      "lastModificationDate": 1657943238363,
+      "contentHash": "1d44c1d29a443d09e96c6aa75457c353",
       "sourceName": "contracts/OpenLibrary.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -249,7 +249,8 @@
         "./IBEP20.sol",
         "./library/SafeMath.sol",
         "./library/Ownable.sol",
-        "./library/Context.sol"
+        "./library/Context.sol",
+        "./CashierDesk.sol"
       ],
       "versionPragmas": [
         "^0.8.12"
@@ -258,10 +259,10 @@
         "OpenLibrary"
       ]
     },
-    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\DRCToken.sol": {
-      "lastModificationDate": 1657440839483,
-      "contentHash": "1a4d51a9084ce53dfd722a40debebb34",
-      "sourceName": "contracts/DRCToken.sol",
+    "D:\\progarmming\\git_home\\OpenLibrary\\contracts\\OPLBToken.sol": {
+      "lastModificationDate": 1657940606801,
+      "contentHash": "82ffb6b33c9fe2a4dbf54de14bc9e520",
+      "sourceName": "contracts/OPLBToken.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
@@ -294,8 +295,8 @@
       ],
       "artifacts": [
         "Context",
-        "DRCToken",
         "IBEP20",
+        "OPLBToken",
         "Ownable"
       ]
     }

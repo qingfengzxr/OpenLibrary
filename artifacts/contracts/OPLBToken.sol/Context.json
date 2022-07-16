@@ -1,0 +1,16 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Context",
+  "sourceName": "contracts/OPLBToken.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220ce255fb34aed0a0ca17a2840f6fccac074f326935271137eccdd04daae0d44e364736f6c634300080c0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220ce255fb34aed0a0ca17a2840f6fccac074f326935271137eccdd04daae0d44e364736f6c634300080c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
