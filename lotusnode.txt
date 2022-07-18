@@ -1,0 +1,3 @@
+lotus节点
+api: /ip4/120.232.253.101/tcp/1234/http
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.vDgj-LlsDHdTBQfNdzr08PrIbxjKu9-lQiVwwPplrmg
