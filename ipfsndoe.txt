@@ -1,0 +1,34 @@
+节点1
+peer identity: 12D3KooWLK9VhTq1CsMpidxw6RLkzr26igvBiidcp21rL99QgVY1
+initializing IPFS node at /root/.ipfs
+to get started, enter:
+
+        ipfs cat /ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme
+
+节点2
+peer identity: 12D3KooWEgs5vn2smPDFGvPUCkEVifmwdTQqUtoNmaRkQGTn43Ya
+initializing IPFS node at /root/.ipfs
+to get started, enter:
+
+        ipfs cat /ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme
+节点3
+peer identity: 12D3KooWEVgPo6QRmaCBr7UouGGoVuevCsY7KeKz3YJTqUxMnwrq
+initializing IPFS node at /root/.ipfs
+to get started, enter:
+
+        ipfs cat /ipfs/QmQPeNsJPyVWPFDVHb77w8G42Fvo15z4bG2X8D2GhfbSXc/readme
+
+
+
+链接1
+/ip4/120.232.253.80/tcp/4001/p2p/12D3KooWLK9VhTq1CsMpidxw6RLkzr26igvBiidcp21rL99QgVY1
+链接2
+/ip4/120.232.253.85/tcp/4001/p2p/12D3KooWEgs5vn2smPDFGvPUCkEVifmwdTQqUtoNmaRkQGTn43Ya
+链接4
+/ip4/120.232.253.87/tcp/4001/p2p/12D3KooWEVgPo6QRmaCBr7UouGGoVuevCsY7KeKz3YJTqUxMnwrq
+
+
+
+
+
+
