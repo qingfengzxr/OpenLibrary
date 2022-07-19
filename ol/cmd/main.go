@@ -2,7 +2,7 @@
  * @Author: tj
  * @Date: 2022-07-19 08:13:58
  * @LastEditors: tj
- * @LastEditTime: 2022-07-19 09:46:01
+ * @LastEditTime: 2022-07-19 19:36:32
  * @FilePath: \ol\cmd\main.go
  */
 package main
@@ -19,11 +19,15 @@ import (
 	httpSvrImpl "ol/api/httpserver/impl"
 	"ol/config"
 	cfgImpl "ol/config/impl"
+	datasqlite "ol/internal/datasqlite"
+	sqliteData "ol/internal/datasqlite/data"
+	actionImpl "ol/internal/datasqlite/impl"
 	"ol/internal/dbgorm"
 	"ol/internal/server"
 	"ol/internal/server/impl"
 	"ol/public/logger"
 
+	"github.com/jinzhu/gorm"
 	"github.com/sirupsen/logrus"
 )
 
@@ -104,13 +108,27 @@ func main() {
 	log.Info("run at path: ", *workDir)
 
 	// mysql 数据库
-	gormDB, err := dbgorm.InitGormDB("mysql", cfg.Database)
-	if err != nil {
-		log.Error("InitGormDB error:", err)
-		os.Exit(1)
+	var gormDB *gorm.DB
+	// sqlite
+	var sqliteHandler datasqlite.DataSqlite
+	if cfg.Database.HasUsed() {
+		gormDB, err = dbgorm.InitGormDB("mysql", cfg.Database)
+		if err != nil {
+			log.Error("InitGormDB error:", err)
+			os.Exit(1)
+		}
+	} else {
+		sqliteDb := actionImpl.NewAction()
+		err = sqliteDb.CreateTable(sqliteData.Book)
+		if err != nil {
+			log.Error("CreateTable error:", err)
+			os.Exit(1)
+		}
+
+		sqliteHandler = sqliteDb
 	}
 
-	svr := impl.NewServer(gormDB)
+	svr := impl.NewServer(gormDB, sqliteHandler)
 	err = svr.Start()
 	if err != nil {
 		log.Errorln("NewServer Start error:", err)

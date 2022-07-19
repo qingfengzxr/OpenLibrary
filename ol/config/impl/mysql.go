@@ -2,8 +2,8 @@
  * @Author: tj
  * @Date: 2022-07-19 08:13:38
  * @LastEditors: tj
- * @LastEditTime: 2022-07-19 13:14:48
- * @FilePath: \OpenLibrary\ol\config\impl\mysql.go
+ * @LastEditTime: 2022-07-19 20:03:10
+ * @FilePath: \ol\config\impl\mysql.go
  */
 package impl
 
@@ -23,6 +23,7 @@ type DatabaseConfig struct {
 	Passwd  string `yaml:"Password" required:"true"` // login password
 	DBName  string `yaml:"DBName" required:"true"`   // connect database source name
 	Charset string `yaml:"Charset"`                  // use char set
+	Used    bool   `yaml:"Used"`                     // 是否启用mysql
 }
 
 // LoadFromFile load config from file
@@ -61,11 +62,15 @@ func (dc *DatabaseConfig) IsValid() bool {
 		return false
 	}
 
-	if dc.Host == "" || dc.Port == 0 || dc.User == "" || dc.Passwd == "" {
+	if dc.Host == "" || dc.Port == 0 || dc.User == "" || dc.Passwd == "" || dc.DBName == "" {
 		return false
 	}
 
 	return true
+}
+
+func (dc *DatabaseConfig) HasUsed() bool {
+	return dc.Used
 }
 
 // Default the config default value
@@ -100,4 +105,7 @@ DBName: ol
 
 # charactor set
 Charset: utf8mb4
+
+# whether use mysql
+Used: true
 `

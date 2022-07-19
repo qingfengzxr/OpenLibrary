@@ -2,7 +2,7 @@
  * @Author: tj
  * @Date: 2022-07-19 08:13:38
  * @LastEditors: tj
- * @LastEditTime: 2022-07-19 09:51:04
+ * @LastEditTime: 2022-07-19 20:08:34
  * @FilePath: \ol\internal\server\impl\api.go
  */
 package impl
@@ -12,6 +12,7 @@ import (
 	"os"
 	"time"
 
+	sqliteData "ol/internal/datasqlite/data"
 	"ol/internal/dbgorm/model"
 	"ol/internal/server/data"
 )
@@ -30,20 +31,33 @@ func (m *Server) SaveContent(req *data.SaveRequest) (*data.SaveResponse, error) 
 		req.Chapter = 1
 	}
 
-	err := m.dbMgr.Create(&model.Book{
-		Cid:      req.Cid,
-		Creator:  req.Creator,
-		Chapter:  req.Chapter,
-		Section:  req.Section,
-		Page:     req.Page,
-		Content:  []byte(base64.StdEncoding.EncodeToString(req.Content)),
-		CreateAt: time.Now().Local(),
-		UpdateAt: time.Now().Local(),
-		DeleteAt: time.Now().Local(),
-	}).Error
-	if err != nil {
-		log.Errorln("Create book info error:", err)
-		return nil, err
+	if m.dbMgr != nil {
+		err := m.dbMgr.Create(&model.Book{
+			Cid:      req.Cid,
+			Creator:  req.Creator,
+			Chapter:  req.Chapter,
+			Section:  req.Section,
+			Page:     req.Page,
+			Content:  []byte(base64.StdEncoding.EncodeToString(req.Content)),
+			CreateAt: time.Now().Local(),
+			UpdateAt: time.Now().Local(),
+			DeleteAt: time.Now().Local(),
+		}).Error
+		if err != nil {
+			log.Errorln("Create book info error:", err)
+			return nil, err
+		}
+	} else {
+		createTime := time.Now().String()
+		updateTime := time.Now().String()
+
+		destKeys := []string{"Cid", "Creator", "Chapter", "Section", "Page", "Content", "CreateAt", "UpdateAt"}
+		destValues := []interface{}{req.Cid, req.Creator, req.Chapter, req.Section, req.Page, base64.StdEncoding.EncodeToString(req.Content), createTime[:19], updateTime[:19]}
+		err := m.sqliteDb.InsertData(sqliteData.Book, destKeys, destValues)
+		if err != nil {
+			log.Errorln("Create book info error:", err)
+			return nil, err
+		}
 	}
 
 	return nil, nil
@@ -54,16 +68,35 @@ func (m *Server) GetContent(req *data.GetRequest) (*data.GetResponse, error) {
 		return nil, os.ErrInvalid
 	}
 
-	book := &model.Book{}
-	m.dbMgr.Where(model.Book{Cid: req.Cid}).First(&book)
+	if m.dbMgr != nil {
+		book := &model.Book{}
+		m.dbMgr.Where(model.Book{Cid: req.Cid}).First(&book)
 
-	if book.Cid != "" {
-		content, err := base64.StdEncoding.DecodeString(string(book.Content))
+		if book.Cid != "" {
+			content, err := base64.StdEncoding.DecodeString(string(book.Content))
+			if err != nil {
+				return nil, err
+			}
+
+			return &data.GetResponse{Content: content}, nil
+		}
+	} else {
+		selectKeys := []string{"Cid"}
+		selectValue := []interface{}{req.Cid}
+
+		dstDataRows, err := m.sqliteDb.ReadData(sqliteData.Book, selectKeys, selectValue, nil)
 		if err != nil {
 			return nil, err
 		}
 
-		return &data.GetResponse{Content: content}, nil
+		if len(dstDataRows) != 0 {
+			content, err := base64.StdEncoding.DecodeString(dstDataRows[0][5])
+			if err != nil {
+				return nil, err
+			}
+			return &data.GetResponse{Content: content}, nil
+		}
+
 	}
 
 	return nil, nil
