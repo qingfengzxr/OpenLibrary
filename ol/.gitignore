@@ -1,0 +1,6 @@
+.history/*
+.vscode/*
+cmd/log/*
+cmd/*.exe
+cmd/config.yaml
+internal/dbgorm/tool/*
