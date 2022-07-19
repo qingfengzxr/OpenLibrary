@@ -2,8 +2,8 @@
  * @Author: tj
  * @Date: 2022-07-19 18:53:42
  * @LastEditors: tj
- * @LastEditTime: 2022-07-19 20:10:40
- * @FilePath: \ol\internal\sqlite\dbmgr.go
+ * @LastEditTime: 2022-07-19 21:20:23
+ * @FilePath: \OpenLibrary\ol\internal\sqlite\dbmgr.go
  */
 package sqlite
 
@@ -38,18 +38,22 @@ type DatabaseMgr struct {
 }
 
 //GetInstance get by process
-func GetInstance() *DatabaseMgr {
+func GetInstance() (*DatabaseMgr, error) {
 	if databaseMgr == nil {
 		//log.d("Get instance failed.")
 		//In case dbh is not initialized and cause app crashes, create a temp db file.
 		//if meta.GetAppContext().IsInitialized {
 		//	databaseMgr, _ = NewDatabaseMgr(meta.GetAppContext().Config.StorageDir, meta.GetAppContext().Config.DatabaseName)
 		//} else {
-		databaseMgr, _ = newDatabaseMgr(DefaultDSN)
+		mgr, err := newDatabaseMgr(DefaultDSN)
+		if err != nil {
+			return nil, err
+		}
+		databaseMgr = mgr
 		//}
 	}
 
-	return databaseMgr
+	return databaseMgr, nil
 }
 
 //NewDatabaseMgr to be initialized while node is up

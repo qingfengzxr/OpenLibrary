@@ -25,7 +25,12 @@ type DBsqlite struct {
 
 //NewSqliteDB 初始化DB并返回
 func NewSqliteDB() (*DBsqlite, error) {
-	db := dalsql.GetInstance().RawHandler
+	mgr, err := dalsql.GetInstance()
+	if err != nil {
+		return nil, err
+	}
+
+	db := mgr.RawHandler
 	if db == nil {
 		return nil, errors.New("sql db is nil")
 	}

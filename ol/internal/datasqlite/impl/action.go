@@ -2,13 +2,21 @@
  * @Author: tj
  * @Date: 2022-07-19 18:58:32
  * @LastEditors: tj
- * @LastEditTime: 2022-07-19 19:23:25
- * @FilePath: \ol\internal\datasqlite\impl\action.go
+ * @LastEditTime: 2022-07-19 21:38:28
+ * @FilePath: \OpenLibrary\ol\internal\datasqlite\impl\action.go
  */
 package impl
 
 import (
 	"ol/internal/datasqlite/handler"
+
+	"github.com/sirupsen/logrus"
+)
+
+var (
+	log = logrus.WithFields(logrus.Fields{
+		"Action": "",
+	})
 )
 
 //Action 函数对象
@@ -23,6 +31,7 @@ func NewAction() *Action {
 func (act *Action) CreateTable(tableName string) error {
 	db, err := handler.NewSqliteDB()
 	if err != nil {
+		log.Errorln("CreateTable NewSqliteDB error:", err)
 		return err
 	}
 
