@@ -1,0 +1,132 @@
+*{
+	list-style: none;
+}
+.world {
+    perspective: 800px;
+    width: 200px;
+    height: 200px;
+    margin-left: 150px;
+	margin-top: 400px;
+}
+
+/*设置视图为3d，使用旋转动画*/
+#cube {
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    animation: rotator 5s linear infinite;
+}
+ 
+/*设置每一片的基础样式*/
+#cube * {
+    box-shadow: 0 0 3px currentColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+ 
+/*设置一定的翻转角度使6片形成正方体*/
+#cube__front {
+    color: deeppink;
+    transform: translateZ(100px);
+}
+ 
+#cube__back {
+    color: seagreen;
+    transform: rotateY(180deg) translateZ(100px);
+}
+ 
+#cube__right {
+    color: lightcoral;
+    transform: rotateY(90deg) translateZ(100px);
+}
+ 
+#cube__left {
+    color: skyblue;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+ 
+#cube__top {
+    color: mediumseagreen;
+    transform: rotateX(90deg) translateZ(100px);
+}
+ 
+#cube__bottom {
+    color: dodgerblue;
+    transform: rotateX(-90deg) translateZ(100px);
+}
+ 
+ 
+/*简单的动画*/
+@keyframes rotator {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+
+}
+.world p{
+	color: black;
+	font-size: 20px;
+	margin-left: 60px;
+}
+.text{
+	color: white;
+	font-size: 20px;
+	margin-left: 180px;
+	margin-top: 130px;
+}
+#login ul{
+	margin-top: 350px;
+}
+#login ul li{
+margin-top: 90px;
+}
+
+#login ul li input{
+	width: 500px;
+	height: 50px;
+	border-radius: 50px;
+	margin-left: 790px;
+	
+}
+.cl{
+	font-size: 20px;
+	margin-left: 950px;
+}
+.onc{
+	margin-left: 1000px;
+	margin-top: -100px;
+	position: absolute;
+	cursor: pointer;
+}
+
+
+#res ul{
+	margin-top: 300px;
+}
+#res ul li{
+margin-top: 45px;
+}
+
+#res ul li input{
+	width: 500px;
+	height: 50px;
+	border-radius: 50px;
+	margin-left: 790px;
+}
+.onc2{
+	margin-left: 1000px;
+	margin-top: 40px;
+	position: absolute;
+	cursor: pointer;
+}
+#top{
+	position: absolute;
+	top: 0;
+	left: 100px;
+}
